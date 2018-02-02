@@ -13,7 +13,7 @@ _start:
 			
 SUM_LOOP:	
 			SUBS R1, R1, #1		//decrement the loop counter
-			BLT SHIFT_COUNT		//end loop if counter has reached negative
+			BLT SHIFT_COUNT		//end loop if counter has reached negative.
 			ADD R10, R10, R0	//add the current signal to R10 which holds the current sum
 			ADD R3, R3, #4		//R3 points to he next signal
 			LDR R0, [R3]		//update R0 with the next signal value
