@@ -3,25 +3,25 @@
 
 _start:
 //Push 1,5,6 onto the stack and pop them into R0-R2
-			LDR R4, =STACK 	//
+			LDR R4, =MYSTACK 	//
 			ADD R4, R4, #8 // R4 points to the bottom of the stack
 			MOV R0, #1		
-			BL PUSH
+			BL MYPUSH
 			MOV R0, #5
-			BL PUSH
+			BL MYPUSH
 			MOV R0, #6
-			BL PUSH
+			BL MYPUSH
 		
-			BL POP
+			BL MYPOP
 			B DONE
-PUSH: 		
+MYPUSH: 		
 //PUSH{R0}
 			STR R0, [R4],#-4
 			BX LR
 
 
 
-POP: 
+MYPOP: 
 //POP {R0 - R2} (Pop 3 times)
 //1st pop -> R0
 //2nd pop -> R1
@@ -33,7 +33,7 @@ POP:
 
 DONE: 		B DONE
 
-STACK: 		.word 0, 0, 0
+MYSTACK: 		.word 0, 0, 0
 
 
 
