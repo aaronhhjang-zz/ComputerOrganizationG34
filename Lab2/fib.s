@@ -2,12 +2,15 @@
 			.global _start
 
 _start:
-            MOV R0, #10 // compute the Nth number of the Fib
+            LDR R0, N // compute the Nth number of the Fib
             LDR R3, RESULT// initialize R3 to 0, which later on stores the Nth Fib number
 			LDR R7, =TICKETBOOTH // R7 points to the first address of ticketbooth, 
 			ADD R7, R7, #40	// R7 points to the bottom of the ticketbooth as we start storing tickets from the bottom going up just like stacks
             MOV R1, #1// R1 = 1 // 0, 1, 1, 2, 5... here R1 is the firsts 1
             MOV R2, #1// R2 = 1 // R2 is the second 1
+			//if n < 2, in fib(n), return 1
+			CMP R0, #1
+			BLE END
 	        BL FIB //go to fib
             MOV R3, R2//R3 stores the final result
             B END
@@ -31,7 +34,8 @@ LETSGOHOME:
 END:
             B END
 
-RESULT:      .word 0
+RESULT:      .word 1 
 
 TICKETBOOTH:	.word 0,0,0,0,0,0,0,0,0,0  // reserved 10 space for potentially 10 tickets, potentially getting the 10th Fib number.
+N:				.word 25
 
