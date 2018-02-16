@@ -11,7 +11,7 @@ _start:
 
 			B END
 
-MAX:		//PUSH {R4-LR}			//previous state saved before calling subroutine
+MAX:		PUSH {R4-LR}			//previous state saved before calling subroutine
 			B LOOP
 
 LOOP:		

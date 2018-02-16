@@ -26,7 +26,7 @@ POP:
 //1st pop -> R0
 //2nd pop -> R1
 //3rd pop -> R2
-			LDR R0, [R4, #4]!	//Pop the content of SP into R0, and increment SP preindex mode
+			LDR R0, [R4, #4]!	//Pop the content of SP into R0, and increment SP pre-index mode
 			LDR R1, [R4, #4]!	//Pop the content of SP into R1, and increment SP	
 			LDR R2, [R4, #4]!	//Pop the content of SP into R2, and increment SP
 			BX LR
